@@ -31,6 +31,10 @@ public class ApplicationMime extends MimeType {
             "application/json", "json", "json",
             "application/json", false);
     
+    public static final ApplicationMime js = new ApplicationMime(
+            "application/javascript", "js", "js", 
+            "application/javascript", false);
+    
     private ApplicationMime(String mimeType, String fileExtension, 
                 String internalName, String format, boolean noop) {
         super(mimeType, fileExtension, internalName, format, false);
@@ -48,6 +52,8 @@ public class ApplicationMime extends MimeType {
             return bil32;
         } else if (formatStr.equalsIgnoreCase(json.format)) {
             return json;
+        } else if (formatStr.equalsIgnoreCase(js.format)){
+            return js;
         }
         
         return null;
@@ -60,6 +66,8 @@ public class ApplicationMime extends MimeType {
             return bil32;
         } else if (fileExtension.equals(json.fileExtension)) {
             return json;
+        } else if( fileExtension.equals(js.fileExtension)) {
+            return js;
         }
         
         return null;

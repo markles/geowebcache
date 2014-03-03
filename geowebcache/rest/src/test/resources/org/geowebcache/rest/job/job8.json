@@ -1,0 +1,22 @@
+{
+"job":{
+	"jobId":8,
+	"layerName":"topp:states",
+	"state":"UNSET",
+	"bounds":"-180.0,-90.0,180.0,90.0",
+	"gridSetId":"EPSG:4326",
+	"srs":4326,
+	"threadCount":5,
+	"zoomStart":0,
+	"zoomStop":10,
+	"format":"image/png8",
+	"jobType":"RESEED",
+	"maxThroughput":10,
+	"priority":"LOW",
+	"schedule":"",
+	"runOnce":false,
+	"spawnedBy":3,
+	"filterUpdate":false,
+	"parameters":"",
+	}
+}

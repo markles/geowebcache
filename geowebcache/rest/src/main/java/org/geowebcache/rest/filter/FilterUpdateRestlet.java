@@ -39,7 +39,7 @@ public class FilterUpdateRestlet extends GWCRestlet {
     public FilterUpdateRestlet(TileLayerDispatcher tld) {
         this.tld = tld;
     }
-
+    
     public void handle(Request request, Response response) {
         Method met = request.getMethod();
         try {

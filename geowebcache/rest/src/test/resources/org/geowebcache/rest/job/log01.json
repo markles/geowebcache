@@ -1,0 +1,11 @@
+{
+  "log":
+  {
+    "jobId":1,
+    "logLevel":"ERROR",
+    "logText":"Thread GWC Seeder Thread-4 was terminated after 1773 tiles due to the following exception:\norg.geowebcache.GeoWebCacheException: java.lang.NullPointerException",
+    "logTime":"2014-03-05T03:33:33+00:00",
+    "jobLogId":1,
+    "logSummary":"Seeding Terminated Abnormally"
+  }
+}

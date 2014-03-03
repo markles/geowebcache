@@ -45,7 +45,10 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>com.sleepycat</groupId>
+      <artifactId>je</artifactId>
+    </dependency>
     
     <dependency>
       <groupId>log4j</groupId>
@@ -113,6 +116,18 @@
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
       <version>3.1</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.sf.cron4j</groupId>
+      <artifactId>cron4j</artifactId>
+      <version>2.2.3</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <classifier>jdk13</classifier>
     </dependency>
 
     <!-- test dependencies -->

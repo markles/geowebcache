@@ -1,0 +1,12 @@
+{
+  "log":  
+  {
+    "jobId":2,
+    "logLevel":"ERROR",
+    "logTime":"2014-03-05T05:09:38+00:00",
+    "logText":"Thread GWC Seeder Thread-5 was terminated after 46620 tiles due to the following exception:\norg.geowebcache.GeoWebCacheException: All backends (1) failed. Last request: 'http://demo.opengeo.org/geoserver/topp/wms?'. MimeType mismatch,
+     expected image/png8 but got application/vnd.ogc.se_xml;charset=UTF-8 from http://demo.opengeo.org/geoserver/topp/wms?:\n<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><!DOCTYPE ServiceExceptionReport SYSTEM \"http://demo.opengeo.org/geoserver/schemas/wms/1.1.1/WMS_exception_1_1_1.dtd\"> <ServiceExceptionReport version=\"1.1.1\" >   <ServiceException>\n      java.lang.NullPointerException\nnull\n<\/ServiceException><\/ServiceExceptionReport>",
+    "jobLogId":5,
+    "logSummary":"Seeding Terminated Abnormally"
+  }
+}

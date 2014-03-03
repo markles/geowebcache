@@ -44,6 +44,7 @@ import org.geowebcache.diskquota.storage.StorageUnit;
 import org.geowebcache.layer.TileLayer;
 import org.geowebcache.layer.TileLayerDispatcher;
 import org.geowebcache.storage.DefaultStorageFinder;
+import org.geowebcache.storage.StorageException;
 import org.geowebcache.util.ApplicationContextProvider;
 import org.springframework.util.Assert;
 import org.springframework.web.context.WebApplicationContext;

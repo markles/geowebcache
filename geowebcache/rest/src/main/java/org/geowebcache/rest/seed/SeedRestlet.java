@@ -92,11 +92,12 @@ public class SeedRestlet extends GWCSeedingRestlet {
         String layerName = null;
         try {
             layerName = URLDecoder.decode((String) req.getAttributes().get("layer"), "UTF-8");
+            sr.setLayerName(layerName);
         } catch (UnsupportedEncodingException uee) {
         }
 
         try {
-            seeder.seed(layerName, sr);
+            seeder.seed(sr);
         } catch (IllegalArgumentException e) {
             throw new RestletException(e.getMessage(), Status.CLIENT_ERROR_BAD_REQUEST);
         } catch (GeoWebCacheException e) {

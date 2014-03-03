@@ -21,7 +21,7 @@ import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.replay;
 import static org.easymock.classextension.EasyMock.verify;
 import static org.geowebcache.TestHelpers.createFakeSourceImage;
-import static org.geowebcache.TestHelpers.createRequest;
+import static org.geowebcache.TestHelpers.createJob;
 import static org.geowebcache.TestHelpers.createWMSLayer;
 
 import java.io.ByteArrayInputStream;
@@ -64,6 +64,7 @@ import org.geowebcache.mime.MimeType;
 import org.geowebcache.seed.GWCTask;
 import org.geowebcache.seed.SeedRequest;
 import org.geowebcache.seed.TileBreeder;
+import org.geowebcache.storage.JobObject;
 import org.geowebcache.storage.StorageBroker;
 import org.geowebcache.storage.TileObject;
 import org.geowebcache.storage.TileRange;
@@ -183,8 +184,8 @@ public class WMSLayerTest extends TestCase {
         
         MockTileSupport mock = new MockTileSupport(tl);
 
-        SeedRequest req = createRequest(tl, GWCTask.TYPE.SEED, 4, 7);
-        TileRange tr = TileBreeder.createTileRange(req, tl);
+        JobObject job = createJob(tl, GWCTask.TYPE.SEED, 4, 7);
+        TileRange tr = TileBreeder.createTileRange(job, tl);
         
         seedTiles(mock.storageBroker, tr, tl);
         
@@ -229,8 +230,8 @@ public class WMSLayerTest extends TestCase {
         MockTileSupport mock = new MockTileSupport(tl);
 
         // we're not really seeding, just using the range
-        SeedRequest req = createRequest(tl, GWCTask.TYPE.SEED, 4, 7);
-        TileRange tr = TileBreeder.createTileRange(req, tl);
+        JobObject job = createJob(tl, GWCTask.TYPE.SEED, 4, 7);
+        TileRange tr = TileBreeder.createTileRange(job, tl);
 
         List<ConveyorTile> tiles = getTiles(mock.storageBroker, tr, tl);
 

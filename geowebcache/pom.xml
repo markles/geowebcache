@@ -64,6 +64,10 @@
       <url>http://download.oracle.com/maven</url>
       <layout>default</layout>
     </repository>
+    <repository>
+      <id>sonatype-forge</id>
+      <url>https://repository.sonatype.org/content/groups/forge/</url>
+    </repository>
   </repositories>
  
   <distributionManagement>
@@ -601,6 +605,7 @@
   
   <modules>
     <module>core</module>
+    <module>client</module>
     <module>georss</module>
     <module>gmaps</module>
     <module>kml</module>

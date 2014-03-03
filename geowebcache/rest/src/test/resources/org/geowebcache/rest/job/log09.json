@@ -1,0 +1,11 @@
+{
+  "log":
+  {
+    "jobId":3,
+    "logLevel":"ERROR",
+    "logTime":"2014-03-05T05:30:15+00:00",
+    "logText":"Thread GWC Seeder Thread-6 was terminated after 56538 tiles due to the following exception:\norg.geowebcache.GeoWebCacheException: All backends (1) failed. Reason: Unexpected response code from backend: 504 for http://demo.opengeo.org/geoserver/topp/wms?.  Last request: 'http://demo.opengeo.org/geoserver/topp/wms?'. ",
+    "jobLogId":9,
+    "logSummary":"Seeding Terminated Abnormally"
+  }
+}

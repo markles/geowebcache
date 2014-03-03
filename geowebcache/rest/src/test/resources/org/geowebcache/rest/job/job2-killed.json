@@ -1,0 +1,31 @@
+{
+"job":{
+    "jobType":"SEED",
+    "jobId":2,
+    "state":"KILLED",
+    "gridSetId":"EPSG:4326",
+    "layerName":"topp:tasmania",
+    "srs":"4326",
+    "errorCount":0,
+    "maxThroughput":10,
+    "timeSpent":-1,
+    "tilesTotal":-1,
+    "warnCount":0,
+    "zoomStart":0,
+    "filterUpdate":false,
+    "priority":"NORMAL",
+    "failedTileCount":0,
+    "timeRemaining":-1,
+    "runOnce":true,
+    "format":"image/png8",
+    "tilesDone":-1,
+    "throughput":0,
+    "timeLatestStart":
+    "2014-03-06T05:33:58+00:00",
+    "bounds":"-180.0,-90.0,180.0,90.0",
+    "zoomStop":11,
+    "spawnedBy":-1,
+    "timeFirstStart":"2014-03-06T05:33:34+00:00",
+    "threadCount":2
+    }
+}

@@ -23,7 +23,7 @@ import static org.easymock.classextension.EasyMock.replay;
 
 import static org.geowebcache.TestHelpers.createFakeSourceImage;
 import static org.geowebcache.TestHelpers.createWMSLayer;
-import static org.geowebcache.TestHelpers.createRequest;
+import static org.geowebcache.TestHelpers.createJob;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -49,7 +49,9 @@ import org.geowebcache.layer.TileResponseReceiver;
 import org.geowebcache.layer.wms.WMSLayer;
 import org.geowebcache.layer.wms.WMSMetaTile;
 import org.geowebcache.layer.wms.WMSSourceHelper;
+import org.geowebcache.seed.GWCTask.PRIORITY;
 import org.geowebcache.seed.GWCTask.TYPE;
+import org.geowebcache.storage.JobObject;
 import org.geowebcache.storage.StorageBroker;
 import org.geowebcache.storage.TileObject;
 import org.geowebcache.storage.TileRange;
@@ -119,9 +121,9 @@ public class SeedTaskTest extends TestCase {
         tl.setSourceHelper(mockSourceHelper);
 
         final int zoomLevel = 4;
-        SeedRequest req = createRequest(tl, TYPE.SEED, zoomLevel, zoomLevel);
+        JobObject job = createJob(tl, TYPE.SEED, zoomLevel, zoomLevel);
 
-        TileRange tr = TileBreeder.createTileRange(req, tl);
+        TileRange tr = TileBreeder.createTileRange(job, tl);
         TileRangeIterator trIter = new TileRangeIterator(tr, tl.getMetaTilingFactors());
 
         /*
@@ -133,7 +135,8 @@ public class SeedTaskTest extends TestCase {
         replay(mockStorageBroker);
 
         boolean reseed = false;
-        SeedTask seedTask = new SeedTask(mockStorageBroker, trIter, tl, reseed, false);
+        SeedTask seedTask = new SeedTask(mockStorageBroker, trIter, tl, reseed, false, 
+                PRIORITY.LOW, 0, -1, -1);
         seedTask.setTaskId(1L);
         seedTask.setThreadInfo(new AtomicInteger(), 0);
         /*
@@ -197,9 +200,9 @@ public class SeedTaskTest extends TestCase {
         tl.setSourceHelper(mockSourceHelper);
 
         final int zoomLevel = 4;
-        SeedRequest req = createRequest(tl, TYPE.SEED, zoomLevel, zoomLevel);
+        JobObject job = createJob(tl, TYPE.SEED, zoomLevel, zoomLevel);
 
-        TileRange tr = TileBreeder.createTileRange(req, tl);
+        TileRange tr = TileBreeder.createTileRange(job, tl);
         TileRangeIterator trIter = new TileRangeIterator(tr, tl.getMetaTilingFactors());
 
         /*
@@ -211,7 +214,8 @@ public class SeedTaskTest extends TestCase {
         replay(mockStorageBroker);
 
         boolean reseed = false;
-        SeedTask seedTask = new SeedTask(mockStorageBroker, trIter, tl, reseed, false);
+        SeedTask seedTask = new SeedTask(mockStorageBroker, trIter, tl, reseed, false,
+                PRIORITY.LOW, 0, -1, -1);
         seedTask.setTaskId(1L);
         seedTask.setThreadInfo(new AtomicInteger(), 0);
 
@@ -256,7 +260,7 @@ public class SeedTaskTest extends TestCase {
 
         final String gridSetId = tl.getGridSubsets().iterator().next();
         final int zoomLevel = 2;
-        SeedRequest req = createRequest(tl, TYPE.SEED, zoomLevel, zoomLevel);
+        JobObject job = createJob(tl, TYPE.SEED, zoomLevel, zoomLevel);
 
         /*
          * Create a mock storage broker that has never an image in its blob store and that captures
@@ -276,11 +280,12 @@ public class SeedTaskTest extends TestCase {
         expect(mockStorageBroker.get((TileObject) anyObject())).andReturn(false).anyTimes();
         replay(mockStorageBroker);
 
-        TileRange tr = TileBreeder.createTileRange(req, tl);
+        TileRange tr = TileBreeder.createTileRange(job, tl);
         TileRangeIterator trIter = new TileRangeIterator(tr, tl.getMetaTilingFactors());
 
         boolean reseed = false;
-        SeedTask task = new SeedTask(mockStorageBroker, trIter, tl, reseed, false);
+        SeedTask task = new SeedTask(mockStorageBroker, trIter, tl, reseed, false,
+                PRIORITY.LOW, 0, -1, -1);
         task.setTaskId(1L);
         task.setThreadInfo(new AtomicInteger(), 0);
         /*
